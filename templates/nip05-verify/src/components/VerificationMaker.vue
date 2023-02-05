@@ -139,7 +139,7 @@ watch(verifyResult, async (newValue, oldValue) => {
 
     <div>If this gadget was helpful to you, you can help me by BitCoin Lighting!</div>
     <code
-      class="code-warp">lnbc1p3alnevpp56pgu5xneldu2gsh0vsxwreal4l4u529u79ffpkfdmfrqtwtyk4wsdpz235xzmntwvsxvmmjypuk7atjyp4kjmnyyycqzpgxqyz5vqsp5u0sruvkjv5y4rll5cw4an2j39e7gsyljc6un2x9curg5qcvxmvdq9qyyssq320rme49cl4rt9s3dppv04dr6ssexvzllw228z24g4fy5324s07xwgjp2cc2l7the7cf9n28mp2z9vwvyc0lp9ckyszrfuyth9um67cq66yayu</code>
+      class="code-warp">lnbc30u1p3almhjpp5cyu37d4v4hmthkct75xyjv2dx9jnng2pmpu9qs5jsptvsg0hpjzsdpq235xzmntwvsxvmmjypuk7atjyp4kjmnycqzpgxqyz5vqsp578s8q56n9w5j2rgszmxmgzaft4z0h9hh8apcjg35h9rw7m4mf8ds9qyyssqx37z8wv008c8t4zql3vwufwun93du9q7gx8swdngk6mufj7fdez4ekccs45r8ty7t3hnlfnwypskz8hghnslcrvfs648mvn54veg93cp9d2nh2</code>
     Or
     <div>
       <img alt="Damus logo" class="qr-code" src="@/assets/lighting-qr.png" width="125" height="125" />
