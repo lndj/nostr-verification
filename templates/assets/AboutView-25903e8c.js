@@ -1,0 +1,1 @@
+import{_ as t,o,c as n,a as e}from"./index-1d437b21.js";const s={},_={class:"about"},c=e("h1",null,"Follow me on #nostr",-1),a=e("p",null,"npub10dnanfsan5y8q59y5gpv0jpgdntwjkrra0rukctpe3u2wvngfd5s2e7z9g",-1),r=[c,a];function d(l,u){return o(),n("div",_,r)}const p=t(s,[["render",d]]);export{p as default};

@@ -5,7 +5,7 @@ export const useVerificationStore = defineStore("verification", {
   state: () => ({
     publicKey: '',
     username: '',
-    domain: 'workfun.life',
+    domain: 'damus.workfun.life',
     usernameCheckStatus: '',
     publicKeyCheckStatus: ''
   }),
