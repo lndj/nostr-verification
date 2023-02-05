@@ -3,9 +3,13 @@ import os
 from flask import Flask, request, jsonify, redirect, render_template, send_from_directory
 from flask_apscheduler import APScheduler
 import requests
+from nostr.key import PublicKey
+from .dao import get_publickey_by_name, set_publickey_by_name, get_name_by_publickey
 
 assets_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates", "assets")
 templates_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates")
+
+SYSTEM_DOMAIN = 'nostr.workfun.life'
 
 
 class Config(object):
@@ -53,7 +57,7 @@ def favicon():
 @app.route('/api/username/<username>/-/action/check', methods=['GET'])
 def check_username(username):
     print(username)
-    if username == 'abc':
+    if get_publickey_by_name(username):
         data = {'status': 'registered'}
     else:
         data = {'status': 'ok'}
@@ -62,19 +66,50 @@ def check_username(username):
 
 @app.route('/api/publickey/<public_key>/-/action/check', methods=['GET'])
 def check_public_key(public_key):
-    print(public_key)
-    if public_key == 'abc':
+    if not public_key:
+        return jsonify({'status': 'parameter error'})
+    hex_public_key = covert_public_key_to_hex(public_key)
+    if hex_public_key is None:
         data = {'status': 'format_error'}
     else:
-        data = {'status': 'ok'}
+        name = get_name_by_publickey(hex_public_key)
+        if name:
+            data = {'status': 'registered', 'username': name}
+        else:
+            data = {'status': 'ok'}
     return jsonify(data)
+
+
+def covert_public_key_to_hex(public_key):
+    if public_key.startswith('npub'):
+        try:
+            pb = PublicKey.from_npub(public_key)
+        except Exception as e:
+            print(e)
+            return None
+        return pb.hex()
+    return None
 
 
 @app.route('/api/verify', methods=['POST'])
 def verify():
     req = request.get_json()
-    print(req)
-    data = {'status': 'ok', 'nip05': 'master@workfun.life'}
+    if not req:
+        return jsonify({'status': 'parameter error'})
+    username = req.get('username')
+    public_key = req.get('public_key')
+    if not username or not public_key:
+        return jsonify({'status': 'parameter error'})
+    hex_public_key = covert_public_key_to_hex(public_key)
+    if hex_public_key is None:
+        return jsonify({'status': 'format_error'})
+    if get_publickey_by_name(username):
+        return jsonify({'status': 'registered'})
+    if get_name_by_publickey(hex_public_key):
+        return jsonify({'status': 'registered'})
+
+    set_publickey_by_name(username, hex_public_key)
+    data = {'status': 'ok', 'nip05': f'{username}@{SYSTEM_DOMAIN}'}
     return jsonify(data)
 
 
