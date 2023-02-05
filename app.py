@@ -9,7 +9,7 @@ from dao import get_publickey_by_name, set_publickey_by_name, get_name_by_public
 assets_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates", "assets")
 templates_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates")
 
-SYSTEM_DOMAIN = 'nostr.workfun.life'
+SYSTEM_DOMAIN = 'damus.workfun.life'
 
 
 class Config(object):
