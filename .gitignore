@@ -1,0 +1,17 @@
+.idea/
+**/pycharm-*/bin/pycharm.sh
+**/pycharm-*/bin/pycharm64.exe
+**/pycharm-*/bin/pycharm.exe
+**/pycharm-*/bin/pycharm64.vmoptions
+**/pycharm-*/bin/pycharm.vmoptions
+**/pycharm-*/bin/fsnotifier
+**/pycharm-*/bin/fsnotifier64
+**/pycharm-*/bin/fsnotifier-arm
+**/pycharm-*/bin/fsnotifier-arm64
+**/*.pyc
+**/*.pyo
+**/*.iml
+**/*.ipr
+**/*.iws
+**/*.idea
+__pycache__/**

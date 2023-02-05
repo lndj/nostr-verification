@@ -1,6 +1,11 @@
-from flask import Flask, request, jsonify, redirect, render_template
+import os
+
+from flask import Flask, request, jsonify, redirect, render_template, send_from_directory
 from flask_apscheduler import APScheduler
 import requests
+
+assets_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates", "assets")
+templates_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates")
 
 
 class Config(object):
@@ -33,6 +38,16 @@ def keep_alive():
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/assets/<path:path>')
+def assets(path):
+    return send_from_directory(assets_root, path)
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(templates_root, 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
 @app.route('/api/username/<username>/-/action/check', methods=['GET'])
