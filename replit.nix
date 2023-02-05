@@ -1,5 +1,9 @@
 { pkgs }: {
   deps = [
+<<<<<<< Updated upstream
+=======
+    pkgs.gnu-smalltalk
+>>>>>>> Stashed changes
     pkgs.python310Full
     pkgs.replitPackages.prybar-python310
     pkgs.replitPackages.stderred
@@ -19,4 +23,8 @@
     STDERREDBIN = "${pkgs.replitPackages.stderred}/bin/stderred";
     PRYBAR_PYTHON_BIN = "${pkgs.replitPackages.prybar-python310}/bin/prybar-python310";
   };
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes
