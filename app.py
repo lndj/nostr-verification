@@ -119,10 +119,10 @@ def verification():
     if not name:
         return jsonify({"error": "name parameter is required"})
 
-    public_key = name_map.get(name)
-    if not public_key:
+    hex_public_key = get_name_by_publickey(name)
+    if not hex_public_key:
         return jsonify({"error": "name not found"})
-    data = {'names': {name: public_key}}
+    data = {'names': {name: hex_public_key}}
     return jsonify(data)
 
 
