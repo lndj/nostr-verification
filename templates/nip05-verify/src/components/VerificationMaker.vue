@@ -70,7 +70,10 @@ watch(usernameCheckStatus, async (newValue, oldValue) => {
 watch(publicKeyCheckStatus, async (newValue, oldValue) => {
   if (newValue === 'format_error') {
     publicKeyErrorMsg.value = 'Your key is error, please confirm';
-  } else {
+  } else if (newValue === 'registered') {
+    publicKeyErrorMsg.value = 'Your key has been registered';
+  }
+  if (newValue === 'ok') {
     publicKeyErrorMsg.value = '';
   }
 });

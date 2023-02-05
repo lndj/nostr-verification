@@ -1,6 +1,8 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>Follow me on #nostr</h1>
+
+    <p>npub10dnanfsan5y8q59y5gpv0jpgdntwjkrra0rukctpe3u2wvngfd5s2e7z9g</p>
   </div>
 </template>
 
