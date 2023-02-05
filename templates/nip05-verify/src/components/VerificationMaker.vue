@@ -95,7 +95,7 @@ watch(verifyResult, async (newValue, oldValue) => {
       @
       <div>
         <select id="domain-input" v-model="domain">
-          <option value="workfun.life">workfun.life</option>
+          <option value="damus.workfun.life">damus.workfun.life</option>
         </select>
       </div>
     </div>
