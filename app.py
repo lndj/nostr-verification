@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify, redirect, render_template, send_from_
 from flask_apscheduler import APScheduler
 import requests
 from nostr.key import PublicKey
-from .dao import get_publickey_by_name, set_publickey_by_name, get_name_by_publickey
+from dao import get_publickey_by_name, set_publickey_by_name, get_name_by_publickey
 
 assets_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates", "assets")
 templates_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates")
